@@ -21,8 +21,8 @@ function App() {
           .then(response => response.json())
           .then(results => {
             // mapped json results to rows so DataGrid can render them
-            const data = results.list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));
-            setRows(data);
+            const mapped = results.list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));
+            setRows(mapped);
           })
       } catch (error) {
         console.log(error);
