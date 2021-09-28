@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import { DataGrid } from '@mui/x-data-grid';
 import useFetch from './components/useFetch';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 function App() {
   const [pageSize, setPageSize] = useState(10);
+  const { status: { loading }, data } = useFetch();
 
-  const { data } = useFetch();
-  
   // Define columns for DataGrid
   const columns = [
     { field: 'name', headerName: 'City', width: 150 },
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className="App">
       {/* Check if data has been fetched and if not render Loading... */}
-      {data.length > 0 ? (
+      {!loading ? (
         <div style={{ height: 700, width: '100%' }}>
           <DataGrid
             pageSize={pageSize}
@@ -30,7 +31,11 @@ function App() {
             columns={columns}
           />
         </div>
-       ) : <h1>Loading...</h1>}
+       ) : (
+          <Box sx={{ width: '150px', padding: "150px", margin: "auto" }}>
+            <CircularProgress />
+          </Box>
+        )}
     </div>
   );
 }

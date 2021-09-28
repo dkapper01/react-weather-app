@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'; 
 
 const useFetch = () => {
-    const [data, setData] = useState([]);
+    const [status, setStatus] = useState({loading: true });
     const [lat, setLat] = useState("");
     const [long, setLong] = useState("");
+    const [data, setData] = useState([]);
 
     useEffect(() => {
+        setStatus({ loading: true });
         const fetchData = async () => {
         // Get latitude and longitude from Geolocation API
             if (navigator.geolocation) {
@@ -25,6 +27,8 @@ const useFetch = () => {
             const data = await response.json()
             const mapped = data.list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));
             setData(mapped);
+            setStatus({ loading: false });
+
         } catch (error) {
             console.log(error);
         }
@@ -32,7 +36,7 @@ const useFetch = () => {
         fetchData();
     }, [lat, long]);
 
-    return { data };
+    return { status, data };
 };
 
 
