@@ -37,14 +37,11 @@ function App() {
 
   return (
     <div className="App">
+      {rows.length > 0 ? (
         <div style={{ height: 700, width: '100%' }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-          />
-      </div>
+          <DataGrid rows={rows} columns={columns} />
+        </div>
+      ) : <h1>Loading...</h1>}
     </div>
   );
 }
