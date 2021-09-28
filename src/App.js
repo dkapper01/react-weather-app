@@ -6,6 +6,7 @@ function App() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [rows, setRows] = useState([]);
+  const [pageSize, setPageSize] = useState(10);
 
 
   useEffect(() => {
@@ -39,7 +40,14 @@ function App() {
     <div className="App">
       {rows.length > 0 ? (
         <div style={{ height: 700, width: '100%' }}>
-          <DataGrid rows={rows} columns={columns} />
+          <DataGrid
+            pageSize={pageSize}
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            rowsPerPageOptions={[5, 10, 20]}
+            pagination
+            rows={rows}
+            columns={columns}
+          />
         </div>
       ) : <h1>Loading...</h1>}
     </div>
