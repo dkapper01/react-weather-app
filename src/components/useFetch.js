@@ -2,16 +2,23 @@ import { useState, useEffect } from 'react';
 
 const useFetch = () => {
     const [data, setData] = useState([]);
-    const [lat, setLat] = useState([]);
-    const [long, setLong] = useState([]);
+    const [lat, setLat] = useState("");
+    const [long, setLong] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
         // Get latitude and longitude from Geolocation API
-        navigator.geolocation.getCurrentPosition((location) => {
-            setLat(location.coords.latitude);
-            setLong(location.coords.longitude);
-        });
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((location) => {
+                    setLat(location.coords.latitude);
+                    setLong(location.coords.longitude);
+                });
+            } else {
+                // set latitude and longitude to default values if Geolocation API is not supported
+                setLat("90.1994");
+                setLong("38.6270");
+                console.log("Geolocation is not supported by this browser.");
+            }
         // Get data from OpenWeatherMap API
         try {
             const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=20&appid=${process.env.REACT_APP_API_KEY}`)
