@@ -10,7 +10,8 @@ function App() {
 
 
   useEffect(() => {
-    const fetchData  = async () => {
+    const fetchData = async () => {
+      // Get latitude and longitude from Geolocation API
       navigator.geolocation.getCurrentPosition((location) => {
         setLat(location.coords.latitude);
         setLong(location.coords.longitude);
@@ -19,6 +20,7 @@ function App() {
         await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=20&appid=${process.env.REACT_APP_API_KEY}`)
           .then(response => response.json())
           .then(results => {
+            // mapped json results to rows so DataGrid can render them
             const data = results.list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));
             setRows(data);
           })
@@ -29,6 +31,7 @@ function App() {
     fetchData();
   }, [lat, long]);
 
+  // Define columns for DataGrid
   const columns = [
     { field: 'name', headerName: 'City', width: 150 },
     { field: 'pressure', headerName: 'Pressure', width: 150 },
@@ -38,6 +41,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* Check if data has been fetched and if not render Loading... */}
       {rows.length > 0 ? (
         <div style={{ height: 700, width: '100%' }}>
           <DataGrid
