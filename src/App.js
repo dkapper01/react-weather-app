@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './App.css';
 import { DataGrid } from '@mui/x-data-grid';
 import useFetch from './components/useFetch';
@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 function App() {
   const [pageSize, setPageSize] = useState(10);
   const { status: { loading }, data } = useFetch();
+  // memoize the data to avoid re-rendering
+  const rows = useMemo(() => data, [data])
 
   // Define columns for DataGrid
   const columns = [
@@ -27,7 +29,7 @@ function App() {
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
             rowsPerPageOptions={[5, 10, 20]}
             pagination
-            rows={data}
+            rows={rows}
             columns={columns}
           />
         </div>
