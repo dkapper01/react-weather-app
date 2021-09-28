@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       {/* Check if data has been fetched and if not render Loading... */}
       {!loading ? (
-        <div style={{ height: 700, width: '100%' }}>
+        <Box sx={{ height: 700, width: '100%' }}>
           <DataGrid
             pageSize={pageSize}
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
@@ -32,7 +32,7 @@ function App() {
             rows={rows}
             columns={columns}
           />
-        </div>
+        </Box>
        ) : (
           <Box sx={{ width: '150px', padding: "150px", margin: "auto" }}>
             <CircularProgress />
