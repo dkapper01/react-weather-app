@@ -16,3 +16,11 @@
 
 **Completion time**
 About two hours
+
+**Todos**
+- "units" Selector (https://openweathermap.org/current#data)
+- Multi Language Selector (https://react.i18next.com/, https://openweathermap.org/current#multi)
+- Layout Update (Full Screen, https://mui.com/material-ui/react-box/, https://mui.com/x/react-data-grid/layout/)
+- Data Source Flexible (cnt=?)
+- Wind Data Add (https://openweathermap.org/current#parameter)
+- Weather Icon (https://openweathermap.org/weather-conditions)
