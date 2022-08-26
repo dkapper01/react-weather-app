@@ -4,7 +4,7 @@
 
 **Features**
 
- - Get latitude and longitude from Geolocation API_
+ - Get latitude and longitude from _Geolocation API_
  - Defaults to St. Louis coordinates in _Geolocation API not supported_
  - Fetched data from Openweather API
  - Reduced the data to only _required JSON_
