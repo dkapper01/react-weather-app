@@ -25,3 +25,4 @@ About two hours
 - Wind Data Add (https://openweathermap.org/current#parameter)
 - Weather Icon (https://openweathermap.org/weather-conditions)
 - Location coordinate error. User "navigator.geolocation" didn't permission accept. (Define Static Location)
+- The symbols of the fields will be defined
