@@ -6,9 +6,16 @@ const useFetch = () => {
     const [lat, setLat] = useState("");
     const [long, setLong] = useState("");
     const [data, setData] = useState([]);
+    //const [language, setLanguage] = useState("");
+    const count = '50';
+    
 
     useEffect(() => {
         setStatus({ loading: true });
+
+        let language = getLanguage();
+
+        //setLanguage(getLanguage());
 
         const fetchData = async () => {
         // Get latitude and longitude from Geolocation API
@@ -25,7 +32,7 @@ const useFetch = () => {
             }
         // Get data from OpenWeatherMap API
         try {
-            const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=30&appid=${process.env.REACT_APP_API_KEY}&lang=${getLanguage()}`)
+            const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=${count}&appid=${process.env.REACT_APP_API_KEY}&lang=${getLanguage()}`)
             const {list} = await response.json()
             // reduce json to only required json for DataGrid to work
             const mapped = list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));

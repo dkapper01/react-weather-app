@@ -31,9 +31,10 @@ function App() {
             autoHeight
             pageSize={pageSize}
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-            rowsPerPageOptions={[5, 10, 20, 30, 50]}
+            rowsPerPageOptions={[5, 10, 15, 20, 30, 50, 100]}
             pagination
-            rows={rows}
+            {...rows}
+            rows={rows.slice(0, pageSize)}
             columns={columns}
           />
         </Box>
