@@ -19,7 +19,7 @@ About two hours
 
 **Todos**
 - [ ] "units" Selector (https://openweathermap.org/current#data)
-- [x] Multi Language Selector (https://react.i18next.com/, https://openweathermap.org/current#multi)
+- [x] Multi Language Selector (https://react.i18next.com/, https://openweathermap.org/current#multi, https://www.i18next.com/overview/api#language)
 - [ ] Layout Update (Full Screen, https://mui.com/material-ui/react-box/, https://mui.com/x/react-data-grid/layout/)
 - [ ] Data Source count Flexible (cnt=?)
 - [ ] Wind Data Add (https://openweathermap.org/current#parameter)
