@@ -23,12 +23,17 @@ const useFetch = () => {
             }
         // Get data from OpenWeatherMap API
         try {
-            const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=20&appid=${process.env.REACT_APP_API_KEY}`)
+            const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=30&appid=${process.env.REACT_APP_API_KEY}`)
             const {list} = await response.json()
             // reduce json to only required json for DataGrid to work
-            const mapped = list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));
-            setData(mapped);
-            setStatus({ loading: false });
+            if(list){
+                const mapped = list.map(({ main: { humidity, pressure, temp }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp }));
+                setData(mapped);
+                setStatus({ loading: false });
+            }else{
+                setStatus({ loading: true });
+            }
+            
 
         } catch (error) {
             console.log(error);

@@ -28,6 +28,24 @@
   color: #61dafb;
 }
 
+.language--bar {
+  position: absolute;
+  font-size: 1rem;
+  right: 1rem;
+}
+
+.language--bar--mobile {
+  padding: 1.25rem;
+}
+
+.language--link {
+  color: white;
+}
+
+.language--seperator {
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
