@@ -5,7 +5,7 @@ import enWeather from './en/enWeather';
 import trGeneral from './tr/trGeneral';
 import trWeather from './tr/trWeather';
 
-
+const getLanguage = () => i18n.language || window.localStorage.i18nLng
 
 i18n
   // pass the i18n instance to react-i18next.
@@ -14,6 +14,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     debug: false,
+    lng: 'en',
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
@@ -34,4 +35,4 @@ i18n
     }
   });
 
-export default i18n;
+export { i18n, getLanguage };

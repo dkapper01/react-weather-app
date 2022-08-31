@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect } from 'react';
+import { getLanguage } from '../assets/locale/config';
 
 const useFetch = () => {
     const [status, setStatus] = useState({loading: true });
@@ -8,6 +9,7 @@ const useFetch = () => {
 
     useEffect(() => {
         setStatus({ loading: true });
+        
         const fetchData = async () => {
         // Get latitude and longitude from Geolocation API
             if (navigator.geolocation) {
@@ -23,7 +25,7 @@ const useFetch = () => {
             }
         // Get data from OpenWeatherMap API
         try {
-            const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=30&appid=${process.env.REACT_APP_API_KEY}`)
+            const response =  await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=30&appid=${process.env.REACT_APP_API_KEY}&lang=${getLanguage()}`)
             const {list} = await response.json()
             // reduce json to only required json for DataGrid to work
             if(list){
@@ -46,4 +48,4 @@ const useFetch = () => {
 };
 
 
-export default useFetch
+export default useFetch;
