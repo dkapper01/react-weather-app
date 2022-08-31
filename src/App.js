@@ -32,7 +32,7 @@ function App() {
             autoHeight
             pageSize={pageSize}
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-            rowsPerPageOptions={[5, 10, 15, 20, 30, 50, 100]}
+            rowsPerPageOptions={[5, 10, 15, 20, 30, 50]}
             pagination
             {...rows}
             rows={rows.slice(0, pageSize)}
@@ -45,19 +45,19 @@ function App() {
           </Box>
         )}
         <div className="language--bar">
-          <span>Select Language: </span>
+          <span style={{display:'flex', flexDirection:'column', margin: '0px 0px 0px 0px'}}>Select Language: </span>
           <MuiLink
               className="language--link"
               onClick={() => i18n.changeLanguage("en") && window.localStorage.setItem('currentLanguage', 'en')}
               underline="hover">
-              <img src={localeOptions.filter(a => a.id==='en')[0].icon} alt="US Flag" height="28px" width="28px" />
+              <img src={localeOptions.filter(a => a.id==='en')[0].icon} alt="US Flag" height="32px" width="32px" />
           </MuiLink>
           <span className="language--seperator">&nbsp;|&nbsp;</span>
           <MuiLink
               className="language--link"
               onClick={() => i18n.changeLanguage("tr") && window.localStorage.setItem('currentLanguage', 'tr')}
               underline="hover">
-              <img src={localeOptions.filter(a => a.id==='tr')[0].icon} alt="TR Flag" height="28px" width="28px" />
+              <img src={localeOptions.filter(a => a.id==='tr')[0].icon} alt="TR Flag" height="32px" width="32px" />
           </MuiLink>
         </div>
       <a href="https://github.com/ramazansancar/react-weather-app/">Github Repo</a>
