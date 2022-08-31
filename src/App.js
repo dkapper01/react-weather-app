@@ -43,20 +43,21 @@ function App() {
           </Box>
         )}
         <div className="language--bar">
-        <MuiLink
-            className="language--link"
-            onClick={() => i18n.changeLanguage("en")}
-            underline="hover">
-            EN
-        </MuiLink>
-        <span className="language--seperator">&nbsp;|&nbsp;</span>
-        <MuiLink
-            className="language--link"
-            onClick={() => i18n.changeLanguage("tr")}
-            underline="hover">
-            TR
-        </MuiLink>
-      </div>
+          <MuiLink
+              className="language--link"
+              onClick={() => i18n.changeLanguage("en")}
+              underline="hover">
+              EN
+          </MuiLink>
+          <span className="language--seperator">&nbsp;|&nbsp;</span>
+          <MuiLink
+              className="language--link"
+              onClick={() => i18n.changeLanguage("tr")}
+              underline="hover">
+              TR
+          </MuiLink>
+        </div>
+      <a href="https://github.com/ramazansancar/react-weather-app/">Github Repo</a>
     </div>
   );
 }
