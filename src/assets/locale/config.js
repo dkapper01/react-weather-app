@@ -9,8 +9,8 @@ const getLanguage = () => i18n.language || window.localStorage.i18nLng
 
 const defaultLocale = 'en'
 const localeOptions = [
-  { id: 'tr', name: 'Türkçe', icon: 'https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.4/Assets/SVG/TR.svg'},
-  { id: 'en', name: 'English', icon: 'https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.4/Assets/SVG/US.svg'},
+  { id: 'tr', name: 'Türkçe', icon: 'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.4/flags/4x3/tr.svg'}, // https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.4/Assets/SVG/TR.svg
+  { id: 'en', name: 'English', icon: 'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.4/flags/4x3/us.svg'}, // - https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.4/Assets/SVG/US.svg
 ]
 
 const locale = (localStorage.getItem('currentLanguage') && localeOptions.filter(x => x.id === localStorage.getItem('currentLanguage')).length > 0) ? localStorage.getItem('currentLanguage') : defaultLocale;
