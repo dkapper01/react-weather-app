@@ -6,6 +6,7 @@ import useFetch from './components/useFetch';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Link as MuiLink} from "@mui/material";
+import { localeOptions } from './assets/locale/config';
 
 function App() {
   const [pageSize, setPageSize] = useState(10);
@@ -44,18 +45,19 @@ function App() {
           </Box>
         )}
         <div className="language--bar">
+          <span>Select Language: </span>
           <MuiLink
               className="language--link"
-              onClick={() => i18n.changeLanguage("en")}
+              onClick={() => i18n.changeLanguage("en") && window.localStorage.setItem('currentLanguage', 'en')}
               underline="hover">
-              EN
+              <img src={localeOptions.filter(a => a.id==='en')[0].icon} alt="US Flag" height="28px" width="28px" />
           </MuiLink>
           <span className="language--seperator">&nbsp;|&nbsp;</span>
           <MuiLink
               className="language--link"
-              onClick={() => i18n.changeLanguage("tr")}
+              onClick={() => i18n.changeLanguage("tr") && window.localStorage.setItem('currentLanguage', 'tr')}
               underline="hover">
-              TR
+              <img src={localeOptions.filter(a => a.id==='tr')[0].icon} alt="TR Flag" height="28px" width="28px" />
           </MuiLink>
         </div>
       <a href="https://github.com/ramazansancar/react-weather-app/">Github Repo</a>

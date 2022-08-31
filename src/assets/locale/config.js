@@ -7,6 +7,14 @@ import trWeather from './tr/trWeather';
 
 const getLanguage = () => i18n.language || window.localStorage.i18nLng
 
+const defaultLocale = 'en'
+const localeOptions = [
+  { id: 'tr', name: 'Türkçe', icon: 'https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.4/Assets/SVG/TR.svg'},
+  { id: 'en', name: 'English', icon: 'https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.4/Assets/SVG/US.svg'},
+]
+
+const locale = (localStorage.getItem('currentLanguage') && localeOptions.filter(x => x.id === localStorage.getItem('currentLanguage')).length > 0) ? localStorage.getItem('currentLanguage') : defaultLocale;
+
 i18n
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
@@ -14,8 +22,10 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     debug: false,
-    lng: 'en',
-    fallbackLng: 'en',
+    locale: locale,
+    lng: locale,
+    fallbackLng: locale,
+    supportedLngs: ['en','tr'],
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
@@ -35,4 +45,4 @@ i18n
     }
   });
 
-export { i18n, getLanguage };
+export { i18n, getLanguage, localeOptions };
