@@ -5,12 +5,13 @@ import { DataGrid } from '@mui/x-data-grid';
 import useFetch from './components/useFetch';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import { Link as MuiLink} from "@mui/material";
+import { Link as MuiLink } from "@mui/material";
 import { localeOptions } from './assets/locale/config';
 
 function App() {
   const [pageSize, setPageSize] = useState(10);
-  const { status: { loading }, data } = useFetch();
+  const { status: { loading }, data, setLanguage } = useFetch();
+  
   // memoize the data to avoid re-rendering
   const rows = useMemo(() => data, [data])
   const { t, i18n } = useTranslation();
@@ -48,14 +49,14 @@ function App() {
           <span style={{display:'flex', flexDirection:'column', margin: '0px 0px 0px 0px'}}>Select Language: </span>
           <MuiLink
               className="language--link"
-              onClick={() => i18n.changeLanguage("en") && window.localStorage.setItem('currentLanguage', 'en')}
+              onClick={() => i18n.changeLanguage("en") && window.localStorage.setItem('currentLanguage', 'en') && setLanguage('en')}
               underline="hover">
               <img src={localeOptions.filter(a => a.id==='en')[0].icon} alt="US Flag" height="32px" width="32px" />
           </MuiLink>
           <span className="language--seperator">&nbsp;|&nbsp;</span>
           <MuiLink
               className="language--link"
-              onClick={() => i18n.changeLanguage("tr") && window.localStorage.setItem('currentLanguage', 'tr')}
+              onClick={() => i18n.changeLanguage("tr") && window.localStorage.setItem('currentLanguage', 'tr') && setLanguage('tr')}
               underline="hover">
               <img src={localeOptions.filter(a => a.id==='tr')[0].icon} alt="TR Flag" height="32px" width="32px" />
           </MuiLink>

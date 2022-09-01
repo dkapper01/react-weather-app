@@ -5,7 +5,7 @@ import enWeather from './en/enWeather';
 import trGeneral from './tr/trGeneral';
 import trWeather from './tr/trWeather';
 
-const getLanguage = () => i18n.language || window.localStorage.i18nLng
+
 
 const defaultLocale = 'en'
 const localeOptions = [
@@ -14,6 +14,8 @@ const localeOptions = [
 ]
 
 const locale = (localStorage.getItem('currentLanguage') && localeOptions.filter(x => x.id === localStorage.getItem('currentLanguage')).length > 0) ? localStorage.getItem('currentLanguage') : defaultLocale;
+
+const getLanguage = () => locale //i18n.language || localStorage.getItem('currentLanguage')
 
 i18n
   // pass the i18n instance to react-i18next.
@@ -25,7 +27,8 @@ i18n
     locale: locale,
     lng: locale,
     fallbackLng: locale,
-    supportedLngs: ['en','tr'],
+    supportedLngs: localeOptions.forEach(a=>{return a.id}),
+    whitelist: localeOptions.forEach(a=>{return a.id}),
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
@@ -45,4 +48,4 @@ i18n
     }
   });
 
-export { i18n, getLanguage, localeOptions };
+export { i18n, getLanguage, localeOptions, locale };
