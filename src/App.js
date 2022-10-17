@@ -20,9 +20,9 @@ function App() {
   const columns = [
     { field: 'name', headerName: t("city"), width: 250 },
     { field: 'pressure', headerName: t("pressure"), width: 125 },
-    { field: 'humidity', headerName: t("humidity")+'(%)', width: 125 },
-    { field: 'temp', headerName: t("temperature")+'(°)', width: 125 },
-    { field: 'wind', headerName: t("wind")+'km/s', width: 125 }
+    { field: 'humidity', headerName: t("humidity")+' (%)', width: 125 },
+    { field: 'temp', headerName: t("temperature")+' (°)', width: 125 },
+    { field: 'wind', headerName: t("wind")+' (km/s)', width: 125 }
   ];
 
   return (
