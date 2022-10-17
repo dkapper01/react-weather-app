@@ -1,6 +1,5 @@
 const content =
 {
-    
     test1: [
         "", ""
     ],
