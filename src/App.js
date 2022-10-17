@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import './assets/style/App.css';
 import { useTranslation } from 'react-i18next';
-import { DataGrid, nlNL } from '@mui/x-data-grid';
+import { DataGrid, trTR } from '@mui/x-data-grid';
 import useFetch from './components/useFetch';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
@@ -39,7 +39,7 @@ function App() {
             {...rows}
             rows={rows.slice(0, pageSize)}
             columns={columns}
-            localeText={nlNL.components.MuiDataGrid.defaultProps.localeText}
+            localeText={trTR.components.MuiDataGrid.defaultProps.localeText}
           />
         </Box>
        ) : (
