@@ -1,13 +1,9 @@
 const content =
 {
-    city: "City",
-    pressure: "Pressure",
-    humidity: "Humidity",
-    temperature:"Temperature",
     test1: [
         "", ""
     ],
-    test2: " option selected",
+    test2: "option selected",
     test3: {
         test4: {
             test5: ""
@@ -34,7 +30,6 @@ const content =
         }
     ],
     test17: ""
-
 };
 
 export default content;

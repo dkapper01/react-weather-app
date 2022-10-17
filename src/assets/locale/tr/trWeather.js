@@ -4,10 +4,11 @@ const content =
     pressure: "Basınç",
     humidity: "Nem",
     temperature: "Sıcaklık",
+    wind: "Rüzgar Hızı",
     test18: [
         "", ""
     ],
-    test19: " option selected",
+    test19: "option selected",
     test20: {
         test21: {
             test22: ""
@@ -34,7 +35,6 @@ const content =
         }
     ],
     test34: ""
-
 };
 
 export default content;
