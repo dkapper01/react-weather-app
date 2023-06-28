@@ -29,9 +29,9 @@ const useFetch = () => {
         // Get data from OpenWeatherMap API
         try {
             console.log('try '+language);
-            if(!lat || !long){return false;}  
-            console.log('fetch '+language);          
-            await fetch(`${process.env.REACT_APP_API_URL}/find?lat=${lat}&lon=${long}&cnt=${count}&appid=${process.env.REACT_APP_API_KEY}&lang=${language}&units=metric`).then((response) => response.json())
+            if(!lat || !long){return false;}
+            console.log('fetch '+language);
+            await fetch(`${process.env.REACT_APP_API_URL}/weather/find/${lat}/${long}?count=${count}&lang=${language}&units=metric`).then((response) => response.json())
                 .then((data) => {
                 const {list} = data;
                 const mapped = list.map(({ main: { humidity, pressure, temp }, wind:{ speed }, name, id }) => ({ id: id, name: name, pressure: pressure, humidity: humidity, temp: temp, speed: speed }));
