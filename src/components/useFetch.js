@@ -39,7 +39,7 @@ const useFetch = () => {
                         pressure: item.pressure,
                         humidity: item.humidity,
                         temp: item.temp,
-                        speed: item.wind_speed
+                        wind: item.wind_speed
                     }
                 });
                 setData(mapped);
