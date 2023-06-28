@@ -32,7 +32,7 @@ const useFetch = () => {
             await fetch(`${process.env.REACT_APP_API_URL}/weather/find/${lat}/${long}?count=${count}&lang=${language}&units=metric`).then((response) => response.json())
                 .then((data) => {
                 const {data} = data;
-                const mapped = data.map((i) => {
+                const mapped = data.map((item) => {
                     return {
                         id: item.id,
                         name: item.name,
